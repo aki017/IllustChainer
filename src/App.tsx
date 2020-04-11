@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { hot } from "react-hot-loader/root";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Top from "./components/top_page";
+import Canvas from "./components/pict_canvas";
+import ErrorPage from "./components/error_page";
+import Chat from "./components/chat";
+import styles from "./App.module.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.StrictMode>
+      <div className={styles.App}>
+        <Router>
+          <header className={styles.header}>
+            <Link to="/">お絵描き</Link>
+          </header>
+
+          <div>
+            <Switch>
+              <Route path="/" exact component={Top} />
+              <Route path="/chat" component={Chat} />
+              <Route path="/rooms/:id" component={Canvas} />
+              <Route exact component={ErrorPage} />
+            </Switch>
+          </div>
+        </Router>
+      </div>
+    </React.StrictMode>
   );
 }
 
-export default App;
+export default hot(App);
