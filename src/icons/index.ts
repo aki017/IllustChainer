@@ -1,0 +1,20 @@
+import icon1 from "./01-11.png";
+import icon2 from "./01-12.png";
+import icon3 from "./02-10.png";
+import icon4 from "./03-8.png";
+import icon5 from "./04-7.png";
+import icon6 from "./15.png";
+import icon7 from "./きつね.jpg";
+import icon8 from "./キリンさんのアイコン.jpg";
+import icon9 from "./すずめのイラスト.jpg";
+import icon10 from "./ゾウさんのアイコン.jpg";
+import icon11 from "./たこ　フリーアイコン.png";
+import icon12 from "./ハリネズミさん.jpg";
+import icon13 from "./ひつじアイコン.png";
+import icon14 from "./ふくろうさん02.png";
+import icon15 from "./犬01.png";
+import icon16 from "./犬02.png";
+import icon17 from "./犬03.png";
+import icon18 from "./犬04.png";
+
+export default [icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10, icon11, icon12, icon13, icon14, icon15, icon16, icon17, icon18];

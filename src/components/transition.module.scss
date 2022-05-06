@@ -1,0 +1,99 @@
+.anim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+
+  display: none;
+
+  &.hold,
+  &.exit,
+  &.enter {
+    display: block;
+  }
+
+  > div {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    height: 11%;
+  }
+
+  &.exit > div {
+    right: 100%;
+    animation-duration: 600ms;
+    animation-name: exit;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  &.enter > div {
+    left: 0%;
+    animation-duration: 600ms;
+    animation-name: enter;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  @for $i from 0 through 9 {
+    > div:nth-child(#{$i + 1}) {
+      top: 10% * $i;
+
+      background: hsl($i * 36, 100%, 75%);
+      animation-delay: 50ms * $i;
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+
+  display: none;
+}
+
+.hold .icon {
+  display: block;
+  animation-duration: 500ms;
+  animation-name: hold;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes hold {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  35% {
+    transform: translate(-50%, -50%) rotate(22.5deg) scale(1.1);
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+}
+@keyframes exit {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0%;
+  }
+}
+
+@keyframes enter {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}

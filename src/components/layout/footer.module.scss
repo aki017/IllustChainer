@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.row {
+  width: 100%;
+  background-color: #282c34;
+}
+.info {
+  position: absolute;
+  top: -1rem;
+  width: 100%;
+  color: white;
+  font-size: 0.7rem;
+  background: #4b4b4ba0;
+
+  &.ready {
+    background: #319931a0;
+  }
+}

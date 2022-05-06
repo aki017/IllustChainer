@@ -1,19 +1,23 @@
 .App {
   text-align: center;
-}
-
-.header {
-  background-color: #282c34;
-  min-height: 100%;
+  max-width: 75vh;
+  height: 100%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  align-items: stretch;
+  background: #b2ebf2;
 
-a {
-  color: #61dafb;
-  text-decoration: none;
+  > .header {
+    flex: 0 0 1rem;
+  }
+
+  > .content {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+  }
 }

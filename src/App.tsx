@@ -1,32 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { hot } from "react-hot-loader/root";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useLocation,
+} from "react-router-dom";
 import Top from "./components/top_page";
-import Canvas from "./components/pict_canvas";
+import Room from "./components/room";
 import ErrorPage from "./components/error_page";
 import Chat from "./components/chat";
 import styles from "./App.module.scss";
+import Header from "./components/layout/header";
+import MyselfContext from "./components/MyselfContext";
+import Game from "./components/game";
+import TransitionRouter from "./transition_router";
 
 function App() {
+  const [myself, setMyself] = useState({ icon: -1, name: "", ready: false });
   return (
-    <React.StrictMode>
-      <div className={styles.App}>
-        <Router>
+    <div className={styles.App}>
+      <Router>
+        <MyselfContext.Provider value={[myself, setMyself]}>
           <header className={styles.header}>
-            <Link to="/">お絵描き</Link>
+            <Header />
           </header>
-
-          <div>
+          <div className={styles.content}>
+            <TransitionRouter />
             <Switch>
               <Route path="/" exact component={Top} />
               <Route path="/chat" component={Chat} />
-              <Route path="/rooms/:id" component={Canvas} />
+              <Route path="/rooms/:id/:page" component={Game} />
+              <Route path="/rooms/:id" component={Room} />
               <Route exact component={ErrorPage} />
             </Switch>
           </div>
-        </Router>
-      </div>
-    </React.StrictMode>
+        </MyselfContext.Provider>
+      </Router>
+    </div>
   );
 }
 

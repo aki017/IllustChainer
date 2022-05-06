@@ -1,0 +1,29 @@
+.rows {
+  overflow-x: hidden;
+  flex: 1;
+}
+
+.row {
+  height: 3rem;
+
+  animation: slideIn 0.4s ease-out;
+  @for $i from 0 through 2 {
+    @for $j from 0 through 2 {
+      &:nth-child(9n + #{$i*3 + $j + 1}) {
+        background: hsl(180+ ($j * 3 + $i) * 40, 100%, 85%);
+      }
+    }
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.footer {
+  flex: 0;
+}

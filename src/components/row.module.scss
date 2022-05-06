@@ -1,0 +1,52 @@
+.row {
+  height: 3rem;
+  display: flex;
+
+  .icon {
+    flex: 0 0 3rem;
+  }
+  .main {
+    flex: 1 0;
+  }
+  .status {
+    flex: 0 0 2rem;
+  }
+}
+
+.statusIcon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  margin: 0.75rem 0.25rem;
+
+  .text {
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: white;
+    $outline-width: 0.03rem;
+    $outline-blur: $outline-width * 3;
+    $outline-color: black;
+    text-shadow: 0 0 $outline-blur black, 0 0 $outline-blur black, 0 0 $outline-blur black, 0 0 $outline-blur black, 0 0 $outline-blur black;
+  }
+}
+
+.status {
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem;
+  border-radius: 2rem;
+  padding: (2rem - 0.4rem - 1rem) / 2;
+  box-sizing: border-box;
+
+  &.pending {
+    border: solid 0.2rem #4b4b4b;
+  }
+  &.ready {
+    border: solid 0.2rem #319931;
+  }
+}

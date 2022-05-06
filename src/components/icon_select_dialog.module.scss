@@ -1,0 +1,32 @@
+.grid {
+  background: hsl(1, 100%, 85%);
+}
+.icon {
+  > img {
+    display: block;
+    width: 100%;
+  }
+
+  cursor: pointer;
+  margin: 0.1rem;
+  border-radius: 25%;
+  border: dashed 0.04rem #4b4b4b;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: white;
+  //box-shadow: 0rem 0rem 0.2rem rgba(0, 0, 0, 1);
+
+  &.on {
+    border-color: #51ff68;
+    animation: selected 0.5s ease-in infinite alternate;
+  }
+}
+
+@keyframes selected {
+  0% {
+    box-shadow: 0rem 0rem 0.4rem #51ff68;
+  }
+  90% {
+    box-shadow: 0rem 0rem 0rem #51ff68;
+  }
+}
